@@ -6,8 +6,29 @@
     <title>income list</title>
 </head>
 <body>
-    <form method="post">
-
-    </form>
+    <table>
+        {% csrf_token %}
+        <tr>
+            <th>Id</th>
+            <th>user</th>
+            <th>amount</th>
+            <th>category</th>
+            <th>description</th>
+            <th>created_at</th>
+            <th>action</th>
+        </tr>
+        {% for income in incomes %}
+        <tr>
+            <td>{{income.id}} </td>
+            <td>{{income.user}} </td>
+            <td>{{income.amount}} </td>
+            <td>{{income.category}} </td>
+            <td>{{income.description}} </td>
+            <td>{{income.created_at}} </td>
+            <a href="#">edit</a>
+            <a href="#">delete</a>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
